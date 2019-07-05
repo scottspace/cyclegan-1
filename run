@@ -1,0 +1,9 @@
+# mv cyclegan-1 CycleGAN_Tensorflow
+export D1=/home/jupyter/CycleGAN_TensorFlow/input/horse2zebra
+export IMG_A=$D1/trainA
+export IMG_B=$D1/trainB
+python3 -m CycleGAN_TensorFlow.create_cyclegan_dataset --image_path_a=$IMG_A --image_path_b=$IMG_B --dataset_name="horse2zebra_train" --do_shuffle=0
+python -m CycleGAN_TensorFlow.main \
+    --to_train=1 \
+    --log_dir=CycleGAN_TensorFlow/output/cyclegan/exp_01 \
+    --config_filename=CycleGAN_TensorFlow/configs/exp_01.json
